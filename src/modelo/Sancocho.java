@@ -65,14 +65,14 @@ public class Sancocho implements Identificable, Costeable {
     public boolean estaCompleto() {
         return olla.contarPorCategoria("Proteína") > 0
                 && olla.contarPorCategoria("Tubérculo") > 0
-                || olla.contarPorCategoria("Condimento") > 0;
+                && olla.contarPorCategoria("Condimento") > 0;
     }
 
     /**
      * Es trifásico si lleva 3 o más proteínas (por ejemplo gallina, res y cerdo).
      */
     public boolean esTrifasico() {
-        return olla.getCantidadIngredientes() >= 3;
+        return olla.contarPorCategoria("Proteína") >= 3;
     }
 
     /**

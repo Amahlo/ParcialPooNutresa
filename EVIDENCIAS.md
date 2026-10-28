@@ -34,8 +34,18 @@
 (las 25 filas)
 
 ## 2. Errores de lógica corregidos
-| # | Archivo y método | Qué hacía mal | Pista (fila de la tabla) | Cómo lo corregí |
-|---|------------------|---------------|--------------------------|-----------------|
+| # | Archivo y método           | Qué hacía mal                 | Pista (fila de la tabla) | Cómo lo corregí       |
+| 1 | Ingrediente.calcularCosto  | gramos / 1000                 | Seccion 1                | gramos / 1000.0       |
+| 2 | Tuberculos.minutosCoccion  | return duro ? 25 : 40         | Seccion 1                | return duro ? 40 : 25 |
+| 3 | Olla.agregarIngrediente    | No suma el ingrediente nuevo  | Seccion 3                | calcularPesoTotal() + nuevo.getGramos() > capacidadGramos|
+| 4 | Olla.buscarPorCodigo       | Comparaba nombre con codigo   | Seccion 1                | i.getCodigo().equals(codigo)|
+| 5 | Olla.calcularTiempoCoccion | Usaba <, así que devolvía 0   | Seccion 4                | i.minutosCoccion() > mayor|
+| 6 | Sancocho.estaCompleto      | Mezclaba `&&` con `||`        | Seccion 4                | && olla.contarPorCategoria("Condimento") > 0|
+| 7 | Sancocho.esTrifasico       | Contaba todos los ingrediente | Seccion 4                | return olla.contarPorCategoria("Proteína") >= 3|             |
+| 8 |                  |               |                          |                 |
+| 9 |                  |               |                          |                 |
+| 10 |------------------|---------------|--------------------------|-----------------|
+
 (las 10 filas)
 
 ## 3. Salida final del programa

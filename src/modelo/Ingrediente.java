@@ -70,7 +70,7 @@ public abstract class Ingrediente implements Identificable, Costeable {
      */
     @Override
     public double calcularCosto() {
-        return gramos / 1000 * precioKilo;
+        return gramos / 1000.0 * precioKilo;
     }
 
     /** Minutos que el ingrediente necesita dentro de la olla. */

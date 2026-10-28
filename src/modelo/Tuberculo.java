@@ -19,7 +19,7 @@ public class Tuberculo extends Ingrediente {
      */
     @Override
     public int minutosCoccion() {
-        return duro ? 25 : 40;
+        return duro ? 40 : 25;
     }
 
     @Override
