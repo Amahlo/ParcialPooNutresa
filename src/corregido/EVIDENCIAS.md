@@ -44,17 +44,20 @@
 | 7 | Sancocho.esTrifasico       | Contaba todos los ingrediente | Seccion 4                | return olla.contarPorCategoria("Proteína") >= 3|             |
 | 8 |                  |               |                          |                 |
 | 9 |                  |               |                          |                 |
-| 10 |------------------|---------------|--------------------------|-----------------|
+| 10 |------------------|---------------|-------------------------|-----------------|
 
 (las 10 filas)
 
 ## 3. Salida final del programa
 (pega aquí la salida completa de `java -cp out Main`, o una captura)
 
-## 4. Conceptos de POO en este proyecto
-Explica brevemente (2-3 líneas cada uno) DÓNDE se usa en este código:
-- **Encapsulamiento:**
-- **Herencia:**
-- **Abstracción (clase abstracta):**
-- **Interfaz:** (hay dos, ¿qué clases implementa cada una?)
-- **Polimorfismo:** (mira la sección 6 de Main)
+##4. Conceptos de POO en este proyecto
+Encapsulamiento: Se aplica ocultando los atributos con modificadores private y final en clases como Ingrediente, Sancocho y Pedido, exponiendo únicamente métodos de acceso (getters) y validaciones en los modificadores (setters) como setGramos() y setPrecioKilo().
+
+Herencia: Se utiliza mediante la relación de jerarquía donde las clases Proteina, Tuberculo, Verdura y Condimento extienden (extends) de la clase base común Ingrediente, heredando sus atributos y comportamientos compartidos.
+
+Abstracción (clase abstracta): Se implementa en la clase abstracta Ingrediente, la cual define la estructura básica de cualquier ingrediente y declara los métodos abstractos minutosCoccion() y getCategoria(), obligando a sus clases hijas concretas a proveer la implementación específica.
+
+Interfaz: Se usan dos interfaces: Identificable (implementada por Ingrediente y Sancocho para gestionar códigos únicos) y Costeable (implementada por Ingrediente, Acompanamiento, Sancocho y Pedido para estandarizar el cálculo del costo financiero en pesos).
+
+Polimorfismo: Se evidencia en la Sección 6 al almacenar objetos de diferentes tipos (Tuberculo, Sancocho, Acompanamiento, Pedido) dentro de una lista genérica de tipo ArrayList<Costeable>, invocando el método calcularCosto() en cada objeto en tiempo de ejecución de forma transparente.
